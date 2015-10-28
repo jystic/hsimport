@@ -111,7 +111,7 @@ parseInvalidSource srcLines firstInvalidLine lastValidLine currLastLine
                      | HS.srcLine srcLoc == firstInvalidLine ->
                         parseInvalidSource srcLines firstInvalidLine lastValidLine nextLine
                      | otherwise                             ->
-                        parseInvalidSource srcLines firstInvalidLine nextLine currLastLine)
+                        parseInvalidSource srcLines firstInvalidLine (nextLine + 1) currLastLine)
 
             (\(_ :: SomeException) -> parseInvalidSource srcLines firstInvalidLine lastValidLine nextLine)
    where
